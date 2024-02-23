@@ -1,5 +1,6 @@
 updateView()
 
+
 function updateView() {
     document.getElementById("app").innerHTML = /*HTML*/ `
         <button onclick="PrintNumbers()">Print Numbers</Button>
