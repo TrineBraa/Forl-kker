@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="printNumbers()">Press this Button</button>
+    <br />
+    <div id="numbers"></div>
+    <br />
+    <br />
+    <input id="inputVowel" type="text"><button onclick="resultVowel()">count Vowels</button>
+    <br />
+    <div id="countedVowels"></div>
+    <br />
+    <br />
+    <input id="reverseInput" type="text"><button onclick="reverseText()">Reverse the Text</button>
+    <br />
+    <div id="theReversedResult"></div>
+
+
+    <script>
+        function printNumbers() {
+            let stopValue = 20
+            for (let counter = 0; counter <= stopValue; counter = counter + 2) {
+                document.getElementById("numbers").innerHTML += `<div>` + counter + `</div>`;
+            }
+        }
+
+        let amountOfVowels = 0;
+
+        function resultVowel() {
+            let userInput = document.getElementById("inputVowel").value;
+            amountOfVowels = checkVowels(userInput);
+            document.getElementById("countedVowels").innerHTML = `You have ${amountOfVowels} vowels in your sentence`;
+        }
+
+
+        function checkVowels(string) {
+            let aCount = 0;
+            let eCount = 0;
+            let iCount = 0;
+            let oCount = 0;
+            let uCount = 0;
+            let yCount = 0;
+            let æCount = 0;
+            let øCount = 0;
+            let åCount = 0;
+
+            for (i = 0; i < string.length; i++) {
+                const char = string[i].toLowerCase();
+                if (char === 'a') { aCount++; }
+                else if (char === 'e') { eCount++; }
+                else if (char === 'i') { iCount++; }
+                else if (char === 'o') { oCount++; }
+                else if (char === 'u') { uCount++; }
+                else if (char === 'y') { yCount++; }
+                else if (char === 'æ') { æCount++; }
+                else if (char === 'ø') { øCount++; }
+                else if (char === 'å') { åCount++; }
+            }
+            return aCount + eCount + iCount + oCount + uCount + yCount + æCount + øCount + åCount
+        }
+
+        let textReverser = '';
+        function reverseText() {
+            let userInput = document.getElementById("reverseInput").value;
+            textReverse = thisReversesText(userInput)
+            document.getElementById("theReversedResult").innerHTML = textReverse;
+        }
+
+        function thisReversesText(string) {
+            let reversedText = '';
+            for (let i = string.length; i >= 0; i--) {
+                reversedText += string.charAt(i);
+            }
+            return reversedText
+        }
+
+    </script>
+
+</body>
+
+</html>
